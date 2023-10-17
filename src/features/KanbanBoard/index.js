@@ -91,7 +91,7 @@ export default function KanbanBoard() {
       </div>
       <p>Grouping by: {grouping}</p>
       <p>Sorting by: {sorting}</p>
-      <div className="wrapper kanban-board" style={{
+      <div className="ticket-groups" style={{
         display: 'flex'
       }}>
         {
