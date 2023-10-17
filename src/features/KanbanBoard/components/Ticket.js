@@ -1,4 +1,3 @@
-import 'assets/css/colors.css'
 import '../assets/css/ticket.css'
 
 // icon imports
