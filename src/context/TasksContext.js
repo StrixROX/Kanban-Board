@@ -7,14 +7,14 @@ export function useTasks() {
 }
 
 export function TasksProvider({ children }) {
-  const [tasks, setTasks] = useState([])
+  const [tasks, setTasks] = useState({})
 
   useEffect(() => {
     const fetchTasks = new Promise((resolve, reject) => {
       if (!process.env.REACT_APP_API_KEY) {
         resolve({
           success: false,
-          result: [],
+          result: {},
           msg: 'API key not found in environment variables'
         })
       }
