@@ -1,8 +1,33 @@
+:root {
+  --ticket-border-radius: 8px;
+  --ticket-inner-spacing: 18px;
+  --ticket-outer-spacing: 10px;
+
+  --text-size-xsm: 0.8rem;
+  --text-size-sm: 0.85rem;
+  --text-size-md: 0.95rem;
+  
+  --icon-spacing: 0.4rem;
+
+  --header-spacing: 5px;
+  
+  --footer-spacing: 10px;
+  --footer-icon-border-radius: 4px;
+  --footer-tag-border-radius: 4px;
+}
+
 .ticket {
   display: flex;
-  flex-direction: column;
-  border: 1px solid black;
+  padding: var(--ticket-inner-spacing);
+  margin: var(--ticket-outer-spacing);
+  width: 80vw;
   max-width: 400px;
+  flex-direction: column;
+  color: var(--text-color);
+  background-color: var(--foreground-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--ticket-border-radius);
+  box-shadow: 0 1px 4px 1px var(--border-color);
 }
 
 /* ticket header */
@@ -10,10 +35,10 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-}
-
-.header .user.available {
-  color: green;
+  margin-bottom: var(--header-spacing);
+  font-size: var(--text-size-sm);
+  font-weight: 500;
+  color: var(--text-color-light);
 }
 
 /* ticket details */
@@ -21,6 +46,13 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  align-items: center;
+  font-size: var(--text-size-md);
+  font-weight: 600;
+}
+
+.details .status {
+  margin-right: var(--icon-spacing);
 }
 
 /* ticket footer */
@@ -28,4 +60,48 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: var(--footer-spacing);
+}
+
+/* ticket footer - priority */
+.footer .priority {
+  display: inline-flex;
+  padding: 0.2rem;
+  margin-right: var(--icon-spacing);
+  border: 1px solid var(--border-color-light);
+  border-radius: var(--footer-icon-border-radius);
+  filter: grayscale();
+}
+
+.footer .priority img {
+  width: var(--text-size-md);
+  height: var(--text-size-md);
+}
+
+/* ticket footer - tags */
+.footer .tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem;
+}
+
+.footer .tags > .tag {
+  display: flex;
+  padding: 0.2rem 0.4rem;
+  align-items: center;
+  font-size: var(--text-size-xsm);
+  border: 1px solid var(--border-color-light);
+  border-radius: var(--footer-tag-border-radius);
+}
+
+.footer .tags > .tag::before {
+  content: '';
+  display: inline-block;
+  margin-right: var(--icon-spacing);
+  width: calc(var(--text-size-md) * 0.8);
+  height: calc(var(--text-size-md) * 0.8);
+  background-color: currentColor;
+  border-radius: 100%;
+  filter: brightness(140%);
 }

@@ -74,7 +74,10 @@ export default function KanbanBoard() {
   }, [grouping, sorting])
 
   return (
-    <>
+    <div className="wrapper kanban-board" style={{
+      background: "var(--background-color)",
+      width: "max-content",
+    }}>
       <div>
         Group by:
         <button onClick={() => setGrouping('status')}>Status</button>
@@ -111,6 +114,6 @@ export default function KanbanBoard() {
           })
         }
       </div>
-    </>
+    </div>
   )
 }
