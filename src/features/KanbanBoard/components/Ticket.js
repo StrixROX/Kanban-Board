@@ -7,7 +7,7 @@ export default function Ticket({ data, userData, groupingScheme }) {
         <div className="header">
           <span className="id">{ data.id }</span>
           {
-            groupingScheme !== 'user'
+            groupingScheme !== 'userId'
             ? <span className={`user ${userData.available ? "available" : ""}`}>{ userData.name }</span>
             : null
           }
