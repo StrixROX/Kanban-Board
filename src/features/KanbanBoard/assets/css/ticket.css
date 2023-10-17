@@ -33,9 +33,10 @@
 /* ticket header */
 .header {
   display: flex;
+  margin-bottom: var(--header-spacing);
   flex-direction: row;
   justify-content: space-between;
-  margin-bottom: var(--header-spacing);
+  gap: var(--icon-spacing);
   font-size: var(--text-size-sm);
   font-weight: 500;
   color: var(--text-color-light);
