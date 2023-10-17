@@ -11,6 +11,8 @@ import priorityMedium from 'assets/icons/priority-medium.svg'
 import priorityHigh from 'assets/icons/priority-high.svg'
 import priorityUrgent from 'assets/icons/priority-urgent.svg'
 
+import UserBubble from './Ticket.UserBubble'
+
 const StatusIcons = {
   'backlog': <FontAwesomeIcon icon={faSpinner} fixedWidth color='#e5e5e5' />,
   'todo': <FontAwesomeIcon icon={faCircle} fixedWidth color='#e1e1e1' />,
@@ -31,6 +33,14 @@ const TagColors = {
   'featurerequest': '#8d8d8e'
 }
 
+function clipText(text, limit=70) {
+  if (text.length > 70) {
+    return text.slice(0, limit).trim() + "..."
+  }
+
+  return text
+}
+
 export default function Ticket({ data, userData, groupingScheme }) {
   return (
     <>
@@ -39,7 +49,7 @@ export default function Ticket({ data, userData, groupingScheme }) {
           <span className="id">{ data.id }</span>
           {
             groupingScheme !== 'userId'
-            ? <span className={`user ${userData.available ? "available" : ""}`}>{ userData.name }</span>
+            ? <UserBubble userData={userData} />
             : null
           }
         </div>
@@ -49,7 +59,7 @@ export default function Ticket({ data, userData, groupingScheme }) {
             ? <span className="status">{StatusIcons[data.status.toLowerCase().replace(' ','')]}</span>
             : null
           }
-          <span className="title">{ data.title }</span>
+          <span className="title">{ clipText(data.title) }</span>
         </div>
         <div className="footer">
           {

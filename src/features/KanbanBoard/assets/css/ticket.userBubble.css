@@ -1,0 +1,31 @@
+.user {
+  display: flex;
+  position: relative;
+  width: 1.6rem;
+  height: 1.6rem;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--foreground-color);
+  background-color: var(--user-background-color);
+  border-radius: 100%;
+  user-select: none;
+}
+
+.user::after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: -2.5px;
+  right: -2.5px;
+  width: 8px;
+  height: 8px;
+  background-color: var(--border-color);
+  border: 2px solid var(--foreground-color);
+  border-radius: 100%;
+}
+
+.user.available::after {
+  background-color: var(--info-color-green);
+}
