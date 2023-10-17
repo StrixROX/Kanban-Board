@@ -1,0 +1,31 @@
+.ticket {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  max-width: 400px;
+}
+
+/* ticket header */
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.header .user.available {
+  color: green;
+}
+
+/* ticket details */
+.details {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+/* ticket footer */
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
