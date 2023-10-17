@@ -28,6 +28,7 @@ export function TasksProvider({ children }) {
     fetchTasks
     .then(res => {
       setTasks(res.result)
+      console.log(res.result)
     })
     .catch(err => console.error(err))
   }, [])
