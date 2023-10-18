@@ -1,7 +1,13 @@
-const { createContext, useContext } = require("react");
+const { createContext, useContext, useState } = require("react");
 
 const GroupingConext = createContext()
 const UpdateGroupingConext = createContext()
+
+export const validGroupings = {
+  'status': 'Status',
+  'priority': 'Priority',
+  'userId': 'User'
+}
 
 export function useGrouping() {
   return useContext(GroupingConext)
@@ -15,7 +21,7 @@ export function GroupingProvider({ children }) {
   const [grouping, setGrouping] = useState('status')
 
   function updateGrouping(value) {
-    if (['status', 'priority', 'userId'].indexOf(value) != -1){
+    if (Object.keys(validGroupings).indexOf(value) != -1){
       setGrouping(value)
     }
   }

@@ -2,6 +2,8 @@ import { useEffect, useState } from "react"
 import { useTasks } from "context/TasksContext"
 
 import TicketGroup from "./components/TicketGroup"
+import { useGrouping } from "./context/GroupingContext"
+import { useSorting } from "./context/SortingContext"
 
 function groupTicketsBy(grouping, sorting, tickets) {
   // separating tickets into groups by `grouping` field
@@ -84,12 +86,11 @@ export default function KanbanBoard() {
   const [tickets, setTickets] = useState([])
   const [users, setUsers] = useState([])
 
-  const [grouping, setGrouping] = useState('status')
-  const [sorting, setSorting] = useState('priority')
-
   const [ticketGroups, setTicketGroups] = useState([])
 
   const tasks = useTasks()
+  const grouping = useGrouping()
+  const sorting = useSorting()
 
   useEffect(() => {
     const newTickets = tasks?.tickets || []
@@ -109,22 +110,7 @@ export default function KanbanBoard() {
 
   return (
     <div className="wrapper kanban-board">
-      <div>
-        Group by:
-        <button onClick={() => setGrouping('status')}>Status</button>
-        <button onClick={() => setGrouping('userId')}>User</button>
-        <button onClick={() => setGrouping('priority')}>Priority</button>
-      </div>
-      <div>
-        Sort by:
-        <button onClick={() => setSorting('priority')}>priority</button>
-        <button onClick={() => setSorting('title')}>Title</button>
-      </div>
-      <p>Grouping by: {grouping}</p>
-      <p>Sorting by: {sorting}</p>
-      <div className="ticket-groups" style={{
-        display: 'flex'
-      }}>
+      <div className="ticket-groups" style={{ display: 'flex' }}>
         {
           sortTicketGroupKeys(Object.keys(ticketGroups), grouping, users)
           .map((group, i) => <TicketGroup groupingScheme={grouping} groupName={group} tickets={ticketGroups[group]} key={i} />)

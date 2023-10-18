@@ -1,0 +1,24 @@
+.topbar {
+  --icon-spacing: 0.8rem;
+  --button-inner-spacing: 0.4rem 0.8rem;
+}
+
+.topbar {
+  position: sticky;
+  display: block;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem 2rem;
+  background-color: var(--foreground-color);
+}
+
+.topbar button.display {
+  display: flex;
+  padding: var(--button-inner-spacing);
+  justify-content: center;
+  align-items: center;
+  gap: var(--icon-spacing);
+  border: 2px solid var(--border-color-light);
+  border-radius: 6px;
+}

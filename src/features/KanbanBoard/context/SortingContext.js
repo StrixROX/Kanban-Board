@@ -1,7 +1,12 @@
-const { createContext, useContext } = require("react");
+const { createContext, useContext, useState } = require("react");
 
 const SortingContext = createContext()
 const UpdateSortingConext = createContext()
+
+export const validSortings = {
+  'priority': 'Priority',
+  'title': 'Title'
+}
 
 export function useSorting() {
   return useContext(SortingContext)
