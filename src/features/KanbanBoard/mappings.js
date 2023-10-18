@@ -8,8 +8,8 @@ import priorityHigh from 'assets/icons/priority-high.svg'
 import priorityUrgent from 'assets/icons/priority-urgent.svg'
 
 export const StatusIcons = {
-  'backlog': <span className="icon status" title="Backlog"><FontAwesomeIcon icon={faSpinner} fixedWidth color='#e5e5e5' /></span>,
-  'todo': <span className="icon status" title="Todo"><FontAwesomeIcon icon={faCircle} fixedWidth color='#e1e1e1' /></span>,
+  'backlog': <span className="icon status" title="Backlog"><FontAwesomeIcon icon={faSpinner} fixedWidth color='#c1c1c1' /></span>,
+  'todo': <span className="icon status" title="Todo"><FontAwesomeIcon icon={faCircle} fixedWidth color='#d1d1d1' /></span>,
   'inprogress': <span className="icon status" title="In Progress"><FontAwesomeIcon icon={faCircleHalfStroke} fixedWidth color='#f1ca48' /></span>,
   'done': <span className="icon status" title="Done"><FontAwesomeIcon icon={faCircleCheck} fixedWidth color='#5e6ad2' /></span>,
   'cancelled': <span className="icon status" title="Cancelled"><FontAwesomeIcon icon={faCircleXmark} fixedWidth color='#94a2b3' /></span>,
