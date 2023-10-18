@@ -11,29 +11,27 @@ export default function DisplayOptions() {
   const updateSorting = useUpdateSorting()
 
   return (
-    <>
-      <div className="options-container">
-        <div className="option grouping">
-          <span className="label">Grouping</span>
-          <select name="grouping" value={grouping} onChange={(e) => updateGrouping(e.target.value)}>
-            {
-              Object.keys(validGroupings).map((el, i) => {
-                return <option value={el} key={i}>{validGroupings[el]}</option>
-              })
-            }
-          </select>
-        </div>
-        <div className="option sorting">
-          <span className="label">Sorting</span>
-          <select name="sorting" value={sorting} onChange={(e) => updateSorting(e.target.value)}>
-            {
-              Object.keys(validSortings).map((el, i) => {
-                return <option value={el} key={i}>{validSortings[el]}</option>
-              })
-            }
-          </select>
-        </div>
+    <div className="options-container">
+      <div className="option grouping">
+        <span className="label">Grouping</span>
+        <select name="grouping" value={grouping} onChange={(e) => updateGrouping(e.target.value)}>
+          {
+            Object.keys(validGroupings).map((el, i) => {
+              return <option value={el} key={i}>{validGroupings[el]}</option>
+            })
+          }
+        </select>
       </div>
-    </>
+      <div className="option sorting">
+        <span className="label">Sorting</span>
+        <select name="sorting" value={sorting} onChange={(e) => updateSorting(e.target.value)}>
+          {
+            Object.keys(validSortings).map((el, i) => {
+              return <option value={el} key={i}>{validSortings[el]}</option>
+            })
+          }
+        </select>
+      </div>
+    </div>
   )
 }

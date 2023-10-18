@@ -1,0 +1,14 @@
+.wrapper.kanban-board {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: stretch;
+  box-sizing: border-box;
+}
+
+.ticket-groups {
+  display: flex;
+  width: 100vw;
+  height: 100%;
+  overflow-x: auto;
+}

@@ -1,0 +1,40 @@
+.options-container {
+  --container-inner-spacing: 1rem 1.5rem;
+  --container-radius: 8px;
+
+  --options-spacing: 0.5rem;
+  --options-selector-spacing: 3rem;
+  --options-radius: 6px;
+}
+
+.options-container {
+  position: absolute;
+  display: flex;
+  padding: var(--container-inner-spacing);
+  flex-direction: column;
+  gap: var(--options-spacing);
+  font-size: var(--text-size-md);
+  color: var(--text-color-light);
+  background-color: var(--foreground-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--container-radius);
+  box-shadow: 0 1px 8px 1px var(--border-color);
+  transform: translate(0, 0.6rem);
+}
+
+.options-container .option {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--options-selector-spacing);
+}
+
+.options-container .option select {
+  padding: 0.2rem 0.6rem;
+  font-size: var(--text-size-md);
+  font-weight: 500;
+  border: 1px solid var(--border-color);
+  border-radius: var(--options-radius);
+}

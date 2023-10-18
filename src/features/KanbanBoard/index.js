@@ -1,7 +1,10 @@
+import './assets/css/index.css'
+
 import { useEffect, useState } from "react"
 import { useTasks } from "context/TasksContext"
 
 import TicketGroup from "./components/TicketGroup"
+import Topbar from "./components/Topbar"
 import { useGrouping } from "./context/GroupingContext"
 import { useSorting } from "./context/SortingContext"
 
@@ -110,7 +113,8 @@ export default function KanbanBoard() {
 
   return (
     <div className="wrapper kanban-board">
-      <div className="ticket-groups" style={{ display: 'flex' }}>
+      <Topbar />
+      <div className="ticket-groups">
         {
           sortTicketGroupKeys(Object.keys(ticketGroups), grouping, users)
           .map((group, i) => <TicketGroup groupingScheme={grouping} groupName={group} tickets={ticketGroups[group]} key={i} />)
