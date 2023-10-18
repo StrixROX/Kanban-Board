@@ -1,7 +1,9 @@
-import '../assets/css/ticket.userBubble.css'
+import '../assets/css/userBubble.css'
+
+import { getTitleCase } from '../utils'
 
 function getUserInitials(name) {
-  const nameParts = name.split(' ')
+  const nameParts = name?.split(' ') || ['']
   let initials = nameParts[0].toUpperCase()[0]
 
   if (nameParts.length > 1) {
@@ -9,15 +11,6 @@ function getUserInitials(name) {
   }
 
   return initials
-}
-
-function getTitleCase(text) {
-  const textParts = text.split(' ')
-  for (let i in textParts) {
-    textParts[i] = textParts[i][0].toUpperCase() + textParts[i].slice(1)
-  }
-
-  return textParts.join(' ')
 }
 
 const bgColorList = ['#bf6c23', '#868700', '#2b963a', '#2b963a', '#f71cef', '#f78d1c']

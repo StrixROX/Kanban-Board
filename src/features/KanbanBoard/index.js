@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useTasks } from "context/TasksContext"
 
-import Ticket from "./components/Ticket"
+import TicketGroup from "./components/TicketGroup"
 
 function groupTicketsBy(grouping, sorting, tickets) {
   // separating tickets into groups by `grouping` field
@@ -44,6 +44,40 @@ function groupTicketsBy(grouping, sorting, tickets) {
   }
 
   return newTicketGroups
+}
+
+function sortTicketGroupKeys(groupKeys, grouping, users) {
+  let sortingFunction = null
+  if (grouping === 'status') {
+    sortingFunction = (a, b) => {
+      if (a < b) {
+        return 1
+      }
+      else {
+        return -1
+      }
+    }
+  }
+  else if (grouping === 'userId') {
+    sortingFunction = (a, b) => {
+      const userA = users.filter(x => x.id === a)[0]?.name || a
+      const userB = users.filter(x => x.id === b)[0]?.name || b
+      
+      if (userA < userB) {
+        return -1
+      }
+      else {
+        return 1
+      }
+    }
+  }
+  else if (grouping === 'priority') {
+    sortingFunction = (a, b) => {
+      return b - a
+    }
+  }
+
+  return groupKeys.sort(sortingFunction)
 }
 
 export default function KanbanBoard() {
@@ -95,23 +129,8 @@ export default function KanbanBoard() {
         display: 'flex'
       }}>
         {
-          Object.values(ticketGroups).map((group, i) => {
-            return (
-              <div className="ticket-group" key={i}>
-                {
-                  group.map((el, i) => {
-                    return (
-                      <Ticket
-                        data={el}
-                        userData={users.filter(x => x.id === el.userId)[0] || {}}
-                        groupingScheme={grouping}
-                        key={i} />
-                    )
-                  })
-                }
-              </div>
-            )
-          })
+          sortTicketGroupKeys(Object.keys(ticketGroups), grouping, users)
+          .map((group, i) => <TicketGroup groupingScheme={grouping} groupName={group} tickets={ticketGroups[group]} key={i} />)
         }
       </div>
     </div>

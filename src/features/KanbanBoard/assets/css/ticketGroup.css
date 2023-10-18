@@ -1,0 +1,50 @@
+.ticket-group {
+  --ticket-group-icon-spacing: 0.3rem;
+  --ticket-group-header-spacing: 1.2rem;
+}
+
+.ticket-group {
+  margin: 1rem;
+}
+
+.group-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.group-header > .left, .group-header > .right {
+  display: flex;
+  padding: 0.2rem 1rem;
+  width: 100%;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+}
+.group-header > .left {
+  gap: var(--ticket-group-header-spacing);
+}
+.group-header > .right {
+  justify-content: flex-end;
+  gap: var(--ticket-group-icon-spacing);
+}
+
+.group-header > .left h1 {
+  font-size: var(--text-size-md);
+  font-weight: 600;
+}
+
+.group-header > .left .icon {
+  font-size: var(--text-size-sm);
+  font-weight: 600;
+}
+
+.group-header > .left .priority-icon.small {
+  transform: scale(0.6);
+}
+
+.group-header > .left .count {
+  color: var(--text-color-light-2);
+}

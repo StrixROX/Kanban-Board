@@ -1,36 +1,7 @@
 import '../assets/css/ticket.css'
 
-// icon imports
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircleCheck, faCircleHalfStroke, faCircleXmark, faSignal, faSpinner } from '@fortawesome/free-solid-svg-icons'
-import { faCircle } from '@fortawesome/free-regular-svg-icons'
-import priorityNone from 'assets/icons/priority-none.svg'
-import priorityLow from 'assets/icons/priority-low.svg'
-import priorityMedium from 'assets/icons/priority-medium.svg'
-import priorityHigh from 'assets/icons/priority-high.svg'
-import priorityUrgent from 'assets/icons/priority-urgent.svg'
-
-import UserBubble from './Ticket.UserBubble'
-
-const StatusIcons = {
-  'backlog': <span className="status" title="Backlog"><FontAwesomeIcon icon={faSpinner} fixedWidth color='#e5e5e5' /></span>,
-  'todo': <span className="status" title="Todo"><FontAwesomeIcon icon={faCircle} fixedWidth color='#e1e1e1' /></span>,
-  'inprogress': <span className="status" title="In Progress"><FontAwesomeIcon icon={faCircleHalfStroke} fixedWidth color='#f1ca48' /></span>,
-  'done': <span className="status" title="Done"><FontAwesomeIcon icon={faCircleCheck} fixedWidth color='#5e6ad2' /></span>,
-  'cancelled': <span className="status" title="Cancelled"><FontAwesomeIcon icon={faCircleXmark} fixedWidth color='#94a2b3' /></span>,
-}
-
-const PriorityIcons = {
-  0: <span className="priority" title="No Priority"><img src={priorityNone} alt="No-priority" /></span>,
-  1: <span className="priority" title="Low Priority"><img src={priorityLow} alt="Low-priority" /></span>,
-  2: <span className="priority" title="Medium Priority"><img src={priorityMedium} alt="Medium-priority" /></span>,
-  3: <span className="priority" title="High Priority"><img src={priorityHigh} alt="High-priority" /></span>,
-  4: <span className="priority" title="Urgent!"><img src={priorityUrgent} alt="Urgent" /></span>,
-}
-
-const TagColors = {
-  'featurerequest': '#8d8d8e'
-}
+import { StatusIcons, PriorityIcons, TagColors } from '../mappings'
+import UserBubble from './UserBubble'
 
 function clipText(text, limit=70) {
   if (text.length > 70) {
