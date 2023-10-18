@@ -17,11 +17,12 @@ export function useUpdateSorting() {
 }
 
 export function SortingProvider({ children }) {
-  const [sorting, setSorting] = useState('status')
+  const [sorting, setSorting] = useState(localStorage.getItem('kanban_board_sorting_scheme') || 'priority')
 
   function updateSorting(value) {
     if (['priority', 'title'].indexOf(value) != -1){
       setSorting(value)
+      localStorage.setItem('kanban_board_sorting_scheme', value)
     }
   }
 

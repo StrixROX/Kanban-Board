@@ -18,11 +18,12 @@ export function useUpdateGrouping() {
 }
 
 export function GroupingProvider({ children }) {
-  const [grouping, setGrouping] = useState('status')
+  const [grouping, setGrouping] = useState(localStorage.getItem('kanban_board_grouping_scheme') || 'status')
 
   function updateGrouping(value) {
     if (Object.keys(validGroupings).indexOf(value) != -1){
       setGrouping(value)
+      localStorage.setItem('kanban_board_grouping_scheme', value)
     }
   }
 
