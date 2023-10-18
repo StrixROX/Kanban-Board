@@ -1,0 +1,13 @@
+button.icon-button {
+  border: none;
+  width: 1.6rem;
+  height: 1.6rem;
+  background: none;
+  font-size: var(--text-size-md);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.15s ease-in;
+}
+button.icon-button:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
